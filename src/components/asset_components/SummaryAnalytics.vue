@@ -2,7 +2,7 @@
 	<div class="summaryanalytics-page flex-row">
 		<div class="summaryanalytics-page__left">
 			<h2 class="summaryanalytics-page__left__title">Активность вашего интернет-следа</h2>
-
+			<LineChart />
 		</div>
 		<div class="summaryanalytics-page__right">
 			<div class="filters flex-row">
@@ -36,10 +36,13 @@
 <script>
 	/* eslint-disable no-mixed-spaces-and-tabs */
 
-	// import LineChart from '../charts/LineChart';
+	import LineChart from '../charts/LineChart';
 
 	export default {
 		name: "SummaryAnalytics",
+		components: {
+			LineChart
+		},
 		data() {
 			return {
 				analyticCards: [
