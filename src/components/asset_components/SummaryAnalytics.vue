@@ -1,7 +1,7 @@
 <template>
 	<div class="summaryanalytics-page flex-row">
 		<div class="summaryanalytics-page__left">
-			<h2>Активность вашего интернет-следа</h2>
+			<h2 class="summaryanalytics-page__left__title">Активность вашего интернет-следа</h2>
 
 		</div>
 		<div class="summaryanalytics-page__right">
@@ -15,14 +15,14 @@
 					<div class="card-top flex-row">
 						<img :src="getImgUrl('img/svg/' + item.type + '.svg')" class="card-img">
 						<div class="flex-column general-statistic">
-							<p>Всего: {{ item.all }}</p>
-							<p>Новых: {{ item.new }}</p>
+							<p :class="item.type == 'images' ? 'blue' : (item.type == 'articles' ? 'green' : 'pink')">Всего: {{ item.all }}</p>
+							<p :class="item.type == 'images' ? 'blue' : (item.type == 'articles' ? 'green' : 'pink')">Новых: {{ item.new }}</p>
 						</div>
 					</div>
 					<p class="card__title">{{ getCardName(item.type) }}</p>
 					<p class="card__subtitle">За выбранный период:</p>
-					<div class="social-info flex-column">
-						<div class="social-info__item flex-row" v-for="(item, index) in item.social" :key="index">
+					<div class="social-info flex-column" :class="item.type == 'images' ? 'blue' : (item.type == 'articles' ? 'green' : 'pink')">
+						<div class="social-info__item flex-row" v-for="(item, index) in item.social" :key="index" >
 							<p>{{ item.name }}</p>
 							<p>{{ item.value }}</p>
 						</div>
@@ -35,7 +35,7 @@
 </template>
 <script>
 	/* eslint-disable no-mixed-spaces-and-tabs */
-	
+
 	export default {
 		name: "SummaryAnalytics",
 		data() {
@@ -67,49 +67,121 @@
 					},
 					{
 						id: 1,
-						type: 'images',
-						all: 1239,
-						new: 11,
+						type: 'articles',
+						all: 34,
+						new: 1,
 						social: [
 							{
-								name: 'Вконтакте',
-								value: 186
+								name: 'Google',
+								value: 15
 							},
 							{
 								name: 'Instagram',
-								value: 132
+								value: 11
 							},
 							{
 								name: 'Яндекс',
-								value: 16
+								value: 6
 							},
 							{
 								name: 'Facebook',
-								value: 5
+								value: 2
 							},
 						]
 					},
 					{
 						id: 2,
 						type: 'videos',
-						all: 1239,
-						new: 11,
+						all: 26,
+						new: 13,
 						social: [
 							{
-								name: 'Вконтакте',
-								value: 186
+								name: 'Youtube',
+								value: 7
 							},
 							{
-								name: 'Instagram',
-								value: 132
+								name: 'Tik tok',
+								value: 3
 							},
 							{
 								name: 'Яндекс',
-								value: 16
+								value: 3
+							},
+							{
+								name: 'Вконтакте',
+								value: 1
+							},
+						]
+					},
+					{
+						id: 3,
+						type: 'articles',
+						all: 34,
+						new: 1,
+						social: [
+							{
+								name: 'Google',
+								value: 15
+							},
+							{
+								name: 'Instagram',
+								value: 11
+							},
+							{
+								name: 'Яндекс',
+								value: 6
 							},
 							{
 								name: 'Facebook',
-								value: 5
+								value: 2
+							},
+						]
+					},
+					{
+						id: 4,
+						type: 'videos',
+						all: 26,
+						new: 13,
+						social: [
+							{
+								name: 'Youtube',
+								value: 7
+							},
+							{
+								name: 'Tik tok',
+								value: 3
+							},
+							{
+								name: 'Яндекс',
+								value: 3
+							},
+							{
+								name: 'Вконтакте',
+								value: 1
+							},
+						]
+					},
+					{
+						id: 5,
+						type: 'articles',
+						all: 34,
+						new: 1,
+						social: [
+							{
+								name: 'Google',
+								value: 15
+							},
+							{
+								name: 'Instagram',
+								value: 11
+							},
+							{
+								name: 'Яндекс',
+								value: 6
+							},
+							{
+								name: 'Facebook',
+								value: 2
 							},
 						]
 					},
@@ -133,23 +205,35 @@
 	}
 </script>
 <style scoped>
+	.green {
+		color: #3BAD76;
+	}
+	.pink {
+		color: #E5649B;
+	}
+	.blue {
+		color: #3EA2E4;
+	}
 	.summaryanalytics-page {
 		width: 100%;
 		height: 200px;
-		background: red;
 	}
 		.summaryanalytics-page__left {
 			width: calc(100% - 925px);
-			background: yellow;
+			margin-top: 63px;
 		}
+			.summaryanalytics-page__left .summaryanalytics-page__left__title {
+				font-size: 17px;
+				line-height: 21px;
+				color: #1B1A26;
+				max-width: 230px;
+			}
 		.summaryanalytics-page__right {
 			width: 925px;
-			background: pink;
 		}
 			.summaryanalytics-page__right .filters {
 				height: 63px;
 				width: 100%;
-				background: brown;
 			}
 				.summaryanalytics-page__right .filters .filters__item {
 					margin-top: 27px;
@@ -161,7 +245,6 @@
 			.summaryanalytics-page__right .analytic-cards {
 				width: 100%;
 				flex-wrap: wrap;
-				background: green;
 				justify-content: space-between;
 			}
 				.summaryanalytics-page__right .analytic-cards__item {
@@ -171,6 +254,7 @@
 					background: #F9F9F8;
 					box-shadow: 1px 3px 10px rgba(82, 144, 188, 0.17);
 					border-radius: 3px;
+					margin: 2.5px 0;
 				}
 					.summaryanalytics-page__right .analytic-cards__item .card-top {
 						justify-content: space-between;
