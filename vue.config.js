@@ -10,5 +10,5 @@ module.exports = {
   devServer:{
     disableHostCheck: true,
   },
-  publicPath: './',
+  publicPath: './cp-vue/dist/',
 }
