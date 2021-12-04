@@ -43,7 +43,7 @@
 						</div>
 					</div>
 					<div class="user-info__right">
-						<button class="flex-row open-button">
+						<button class="flex-row open-button" @click="$router.push({path: 'solar'})">
 							<img src="~@/assets/img/svg/universe-icon.svg">
 							<p>Открыть мою Вселенную</p>
 						</button>

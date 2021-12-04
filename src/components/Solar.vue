@@ -1,11 +1,11 @@
 <template>
 	<div class="solar-page">
 		<div class="solar-page__header flex-row">
-			<div class="solar-page__header__back flex-row">
+			<div class="solar-page__header__back flex-row" @click="$router.push({path: '/'})">
 				<img src="~@/assets/img/svg/arrow-left.svg">
 				<p>К сводке</p>
 			</div>
-			<div class="solar-page__header__close">
+			<div class="solar-page__header__close" @click="$router.push({path: '/'})">
 				<img src="~@/assets/img/svg/close-icon.svg">
 			</div>
 		</div>

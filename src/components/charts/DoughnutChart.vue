@@ -13,7 +13,7 @@
 					data: {
 						datasets: [
 							{
-								data: [10, 20, 30],
+								data: [10, 40, 90],
 								backgroundColor: [
 									"#67BEF8",
 									"#35E991",
