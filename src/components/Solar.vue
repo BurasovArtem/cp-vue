@@ -60,7 +60,9 @@
 	  background: url("~@/assets/img/general/background-solar.png");
 	  background-repeat: no-repeat;
 	  background-size: 100% 100%;
-	  min-height: 100vh; }
+	  min-height: 100vh;
+	  height: auto;
+	}
 
 	.solar-page__header {
 	  justify-content: space-between;

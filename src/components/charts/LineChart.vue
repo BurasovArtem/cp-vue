@@ -26,8 +26,8 @@
 		            }]
 		          },
 		          options: {
-		          	responsive: true,
-    				maintainAspectRatio: false,
+		          	responsive: false,
+    				maintainAspectRatio: true,
 		            elements: {
 		              point: {
 		                borderWidth: 0,

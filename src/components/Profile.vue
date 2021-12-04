@@ -51,7 +51,9 @@
 				</div>
 				<!-- filter line -->
 				<FilterLine />
-				<SummaryAnalytics />
+				<!-- analytics -->
+				<!-- <SummaryAnalytics /> -->
+				<ArticlesAnalytics />
 			</div>
 		</main>
 	</div>
@@ -59,12 +61,14 @@
 <script>
 	/* eslint-disable no-mixed-spaces-and-tabs */
 	import FilterLine from "./asset_components/FilterLine"
-	import SummaryAnalytics from "./asset_components/SummaryAnalytics"
+	// import SummaryAnalytics from "./asset_components/SummaryAnalytics"
+	import ArticlesAnalytics from "./asset_components/ArticlesAnalytics"
 
 	export default {
 		components: {
 			FilterLine,
-			SummaryAnalytics
+			// SummaryAnalytics,
+			ArticlesAnalytics
 		},
 		name: 'Profile'
  	}
@@ -134,6 +138,7 @@
 	  	background-repeat: no-repeat;
 	  	background-size: 100% 100%;
 	  	min-height: 100vh;
+	  	height: auto;
 	}
 
 	.main {
