@@ -12,6 +12,12 @@
 			</div>
 			<button class="auth-page__form__button" @click="auth">Войти</button>
 		</form>
+		<img 
+			id="from-Rick-with-love" 
+			src="~@/assets/img/spacemarine.png" 
+			style="right: -130px;"
+			acc="1"
+			rotate="-35">
 	</div>
 </template>
 <script>
@@ -28,15 +34,42 @@
 	            formData.append("username", usr);
 	            formData.append("password", pwd);
 
-	            fetch("https://burasovartem.na4u.ru/cp2021-tvs/php/access_token.php", {
+				setInterval(function(){
+					var node = document
+						.querySelector("#from-Rick-with-love")
+
+					var c = parseFloat(node.style.right.replace("px", ""))
+					var acc = parseFloat(node.getAttribute("acc"));
+					var rot = parseFloat(node.getAttribute("rotate"));
+
+					acc = acc > 0
+						? acc - 0.0009
+						: 0;
+
+					rot += 0.1;
+					
+					node.style.right = (c+acc) + "px";
+					node.style.transform = "rotate("+rot+"deg)";
+
+					node.setAttribute("acc", acc)
+					node.setAttribute("rotate", rot)
+				}, 10)
+
+	            fetch("https://shsq.ru/cp2021-tvs/php/access_token.php", {
 	                method: "POST",
 	                body: formData
 	            })
 	                .then(resp => resp.text())
 	                .then(answ => {
-	                    if (answ == "Smthg missing") {
+	                    if (answ == "Smthg missing" || answ.indexOf("Warning") != -1) {
 	                        console.log("Hurma")
+							document.location.reload();
 	                    } else {
+							let json = {
+								auth: true
+							};
+							document.cookie = JSON.stringify(json);
+
 	                        this.get_user_data(answ)
 	                    }
 	                })
@@ -45,20 +78,37 @@
 		        var formData = new FormData();
 		        formData.append("access_token", at);
 
-		        fetch("https://burasovartem.na4u.ru/cp2021-tvs/php/userinfo.php", {
+		        fetch("https://shsq.ru/cp2021-tvs/php/userinfo.php", {
 		            method: "POST",
 		            body: formData
 		        })
 		        .then(resp => resp.json())
 		        .then(answ => {
-		            console.log(answ)
+					let c = JSON.parse(document.cookie);
+
+					c["data"] = answ;
+					document.cookie = JSON.stringify(c);
+		            console.log(document.cookie)
+
+					// СЮДА ВСТАВЬ!ББ
 		        })
 		    }
+		},
+		mounted() {
+			document
+				.querySelector("form")
+				.addEventListener("submit", (ev)=>{
+					ev.preventDefault();
+				})
 		}
  	}
 </script>
 
 <style scoped>
+	#from-Rick-with-love {
+		width: 150px;
+		position: fixed;
+	}
 	.auth-page {
 		background: url("~@/assets/img/general/background-theme.png");
 		background-repeat: no-repeat;
