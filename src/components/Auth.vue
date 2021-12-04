@@ -63,7 +63,7 @@
 	                .then(answ => {
 	                    if (answ == "Smthg missing" || answ.indexOf("Warning") != -1) {
 	                        console.log("Hurma")
-							document.location.reload();
+							this.$router.push({path: 'auth'})
 	                    } else {
 							let json = {
 								auth: true
