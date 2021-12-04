@@ -1,5 +1,5 @@
 <template>
-	<canvas ref="linechart"></canvas>
+	<canvas ref="linechart" id="linechart"></canvas>
 </template>
 <script>
 	/* eslint-disable no-mixed-spaces-and-tabs */
@@ -15,9 +15,8 @@
 		            datasets: [{
 		              data: [10, 20, 30, 40, 50, 60, 60, 70, 10, 20, 50],
 		              label: '',
-		              lineTension: 0.4, // The parameter responsible for the "smoothness" of the line (less value = straighter line)
-		              borderColor: "#4F46E5",
-		              fill:'start',
+		              lineTension: 0.4,
+		              borderColor: "#D96DD4",
 		              pointHitRadius: 45,
 		              pointBorderColor: 'transparent',
 		              pointBackgroundColor: 'transparent',
@@ -27,6 +26,8 @@
 		            }]
 		          },
 		          options: {
+		          	responsive: true,
+    				maintainAspectRatio: false,
 		            elements: {
 		              point: {
 		                borderWidth: 0,
@@ -35,9 +36,9 @@
 		              },
 		            },
 		            plugins: {
-		              legend: {
-		                display: false
-		              },
+		              	legend: {
+		                	display: false
+		              	},
 		              annotation: {
 		                annotations: {
 		                  line: {
@@ -58,34 +59,20 @@
 		                titleColor: 'rgba(235, 235, 245, 0.6)',
 		                titleFont: {
 		                  weight: '500',
-		                  size: '9.04px',
-		                  lineHeight: '9.04px'
+		                  size: '0px',
+		                  lineHeight: '0px'
 		                },
 		                bodyFont: {
 		                  weight: '700',
 		                  lineHeight: '16.27px'
 		                },
 		                padding: {
-		                  left: 15,
-		                  right: 15,
-		                  top: 14,
-		                  bottom: 10
+		                  left: 5,
+		                  right: 5,
+		                  top: 5,
+		                  bottom: 5
 		                },
 		                displayColors: false,
-		                callbacks: {
-		                  // title: function (data) {
-		                  //   const date = new Date(data[0].label);
-		                  //   const month = date.getMonth() + 1;
-		                  //   let day = data[0].label.split('').slice(8,10).join('')
-		                  //   if (day[0]==="0") {
-		                  //     day = day.substring(1)
-		                  //   }
-		                  //   return `${day} ${monthNames[month]} ${data[0].label}`
-		                  // },
-		                  // label: function (data) {
-		                  //   return `${data.formattedValue} DBUSD`
-		                  // },
-		                }
 		              }
 		            },
 		            scales: {
@@ -97,11 +84,7 @@
 		                  padding: 20,
 		                  maxTicksLimit: 7,
 		                  maxRotation: 0,
-		                  // callback: (value, index, values) => {
-		                  //   let date = this.data.labels[index],
-		                  //       customDate = this.moment.utc(date).local().format("DD.MM");
-		                  //   return customDate;
-		                  // },
+		                  display: false,
 		                },
 		              },
 		              y: {
@@ -115,9 +98,6 @@
 		                  maxTicksLimit: 6,
 		                  padding: 10,
 		                  display: false,
-		                  // callback: (value, index, values) => {
-		                  //   return moneyFormat(value) + `   `;
-		                  // },
 		                },
 		              },
 		            },
@@ -130,3 +110,8 @@
 		}
 	}
 </script>
+<style scoped>
+	#linechart {
+		width: 225px !important;
+	}
+</style>

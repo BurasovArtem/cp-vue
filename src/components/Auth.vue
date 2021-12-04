@@ -129,4 +129,7 @@
 				border: 0;
 				cursor: pointer;
 			}
+				.auth-page .auth-page__form .auth-page__form__button:hover {
+					background: #5A73B5;
+				}
 </style>

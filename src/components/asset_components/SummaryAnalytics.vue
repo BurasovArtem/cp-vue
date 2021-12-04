@@ -2,7 +2,12 @@
 	<div class="summaryanalytics-page flex-row">
 		<div class="summaryanalytics-page__left">
 			<h2 class="summaryanalytics-page__left__title">Активность вашего интернет-следа</h2>
+			<p class="summaryanalytics-page__left__subtitle">
+				Период: <label>Ноябрь</label>
+			</p>
 			<LineChart />
+			<button class="all-button">Подробнее</button>
+			<DoughnutChart />
 		</div>
 		<div class="summaryanalytics-page__right">
 			<div class="filters flex-row">
@@ -37,11 +42,13 @@
 	/* eslint-disable no-mixed-spaces-and-tabs */
 
 	import LineChart from '../charts/LineChart';
+	import DoughnutChart from '../charts/DoughnutChart';
 
 	export default {
 		name: "SummaryAnalytics",
 		components: {
-			LineChart
+			LineChart,
+			DoughnutChart
 		},
 		data() {
 			return {
@@ -233,6 +240,30 @@
 				color: #1B1A26;
 				max-width: 230px;
 			}
+			.summaryanalytics-page__left .summaryanalytics-page__left__subtitle {
+				font-size: 14px;
+				line-height: 17px;
+				color: #AEB1B6;
+				margin-top: 34px;
+				margin-bottom: 19px;
+			}
+				.summaryanalytics-page__left .summaryanalytics-page__left__subtitle label {
+					color: #727579;
+				}
+			.summaryanalytics-page__left .all-button {
+				border: 0;
+				background: transparent;
+				text-decoration: underline;
+				font-size: 13px;
+				line-height: 16px;
+				color: #5D6776;
+				margin-top: 12.5px;
+				margin-bottom: 30px;
+				cursor: pointer;
+			}
+				.summaryanalytics-page__left .all-button:hover {
+					text-decoration: none;
+				}
 		.summaryanalytics-page__right {
 			width: 925px;
 		}
