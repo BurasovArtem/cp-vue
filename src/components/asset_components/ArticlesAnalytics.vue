@@ -96,6 +96,63 @@
 					<p>По новизне</p>
 				</div>
 			</div>
+			<div class="articles-list__card first-card flex-row">
+				<div class="articles-list__card__left flex-column">
+					<p class="uptitle">Статья</p>
+					<h3 class="title">Кибер-состязания</h3>
+					<div class="flex-row link">
+						<p>Источник:&nbsp;</p>
+						<a href="#">aumsu.ru</a>
+					</div>
+				</div>
+				<div class="articles-list__card__middle flex-column">
+					<p>Стартовали кибер-состязания на День радио - 7 мая в 10 утра, а завершились в полночь уже 8 мая. Мероприятие проводилось при поддержке компании HERE Technology. Конечно, с учетом...</p>
+					<a href="#">Смотреть полностью</a>
+				</div>
+				<div class="articles-list__card__right flex-row">
+					<button class="share"><img src="~@/assets/img/svg/share-icon-white.svg"></button>
+					<button class="favorite"><img src="~@/assets/img/svg/heart-icon-white.svg"></button>
+					<button class="application">Заявка на изменение</button>
+				</div>
+			</div>
+			<div class="articles-list__card flex-row">
+				<div class="articles-list__card__left flex-column">
+					<p class="uptitle">Статья</p>
+					<h3 class="title">Кибер-состязания</h3>
+					<div class="flex-row link">
+						<p>Источник:&nbsp;</p>
+						<a href="#">aumsu.ru</a>
+					</div>
+				</div>
+				<div class="articles-list__card__middle flex-column">
+					<p>Стартовали кибер-состязания на День радио - 7 мая в 10 утра, а завершились в полночь уже 8 мая. Мероприятие проводилось при поддержке компании HERE Technology. Конечно, с учетом...</p>
+					<a href="#">Смотреть полностью</a>
+				</div>
+				<div class="articles-list__card__right flex-row">
+					<button class="share"><img src="~@/assets/img/svg/share-icon-white.svg"></button>
+					<button class="favorite"><img src="~@/assets/img/svg/heart-icon-white.svg"></button>
+					<button class="application">Заявка на изменение</button>
+				</div>
+			</div>
+			<div class="articles-list__card flex-row">
+				<div class="articles-list__card__left flex-column">
+					<p class="uptitle">Статья</p>
+					<h3 class="title">Кибер-состязания</h3>
+					<div class="flex-row link">
+						<p>Источник:&nbsp;</p>
+						<a href="#">aumsu.ru</a>
+					</div>
+				</div>
+				<div class="articles-list__card__middle flex-column">
+					<p>Стартовали кибер-состязания на День радио - 7 мая в 10 утра, а завершились в полночь уже 8 мая. Мероприятие проводилось при поддержке компании HERE Technology. Конечно, с учетом...</p>
+					<a href="#">Смотреть полностью</a>
+				</div>
+				<div class="articles-list__card__right flex-row">
+					<button class="share"><img src="~@/assets/img/svg/share-icon-white.svg"></button>
+					<button class="favorite"><img src="~@/assets/img/svg/heart-icon-white.svg"></button>
+					<button class="application">Заявка на изменение</button>
+				</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -285,4 +342,107 @@
 						line-height: 17px;
 						color: #9D9D9F;
 					}
+		.articles-list__card {
+			background: #F9F9F8;
+			box-shadow: 1px 3px 10px rgba(82, 144, 188, 0.17);
+			border-radius: 3px;
+			height: 130px;
+			align-items: center;
+			justify-content: space-around;
+		}
+			.articles-list__card .articles-list__card__left {
+
+			}
+				.articles-list__card .articles-list__card__left .uptitle {
+					font-size: 15px;
+					line-height: 18px;
+					color: #AEB1B6;
+					font-family: MontserratSemiBold;
+				}
+				.articles-list__card .articles-list__card__left .title {
+					font-size: 20px;
+					line-height: 24px;
+					text-transform: uppercase;
+					color: #1B1A26;
+					font-family: MontserratSemiBold;
+					margin-top: 8px;
+				}
+				.articles-list__card .articles-list__card__left .link {
+					font-size: 15px;
+					line-height: 18px;
+					margin-top: 6px;
+				}
+					.articles-list__card .articles-list__card__left .link p {
+						color: #646371;
+						font-family: MontserratSemiBold;
+					}
+					.articles-list__card .articles-list__card__left .link a {
+						text-decoration-line: underline;
+						color: #5A73B5;
+					}
+						.articles-list__card .articles-list__card__left .link a:hover {
+							text-decoration-line: none;
+						}
+			.articles-list__card .articles-list__card__middle {
+				font-size: 13px;
+				line-height: 16px;
+				font-family: MontserratRegular;
+			}
+				.articles-list__card .articles-list__card__middle p {
+					color: #1B1A26;
+					max-width: 443px;
+				}
+				.articles-list__card .articles-list__card__middle a {
+					text-decoration: underline;
+					color: #5A73B5;
+				}
+					.articles-list__card .articles-list__card__middle a:hover {
+						text-decoration: none;
+					}
+			.articles-list__card .articles-list__card__right {
+
+			}
+				.articles-list__card .articles-list__card__right button {
+					background: transparent;
+					border: none;
+					cursor: pointer;
+				}
+				.articles-list__card .articles-list__card__right .share {
+					width: 40px;
+					height: 40px;
+					background: #51C48B;
+					border-radius: 15px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-right: 14px;
+				}
+				.articles-list__card .articles-list__card__right .favorite {
+					width: 40px;
+					height: 40px;
+					background: #3EA2E4;
+					border-radius: 15px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-right: 14px;
+				}
+				.articles-list__card .articles-list__card__right .application {
+					width: 222px;
+					height: 40px;
+					background: #A032BC;
+					border-radius: 15px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					font-size: 15px;
+					line-height: 18px;
+					color: #FFFFFF;
+				}
+		.articles-list__card {
+			margin-top: 10px;
+		}
+		.first-card {
+			margin-top: 30px !important;
+		}
 </style>

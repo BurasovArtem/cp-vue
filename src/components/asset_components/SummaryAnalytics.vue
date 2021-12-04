@@ -32,7 +32,7 @@
 							<p>{{ item.value }}</p>
 						</div>
 					</div>
-					<button class="button-all">Полный отчет</button>
+					<button class="button-all" @click="item.type == 'articles' && openArticles()">Полный отчет</button>
 				</div>
 			</div>
 		</div>
@@ -212,6 +212,10 @@
 				} else {
 					return "Видео"
 				}
+			},
+			openArticles() {
+				this.$bus.$emit('isSummary', false);
+				this.$bus.$emit('isArticles', true);
 			}
 		}
 	}

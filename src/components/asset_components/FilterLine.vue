@@ -1,6 +1,9 @@
 <template>
 	<div class="filter-line flex-row">
-		<p class="filter__title">Сводка</p>
+		<div class="flex-row" style="align-items: center;">
+			<img src="~@/assets/img/svg/arrow-back.svg" style="cursor: pointer; margin-right: 18px;" v-if="!status" @click="$bus.$emit('isSummary', true); $bus.$emit('isArticles', false);">
+			<p class="filter__title">{{ check() }}</p>
+		</div>
 		<div class="filter__datepicker flex-row">
 			<p class="text">Период:</p>
 			<button class="datepicker flex-row">
@@ -16,8 +19,30 @@
 	</div>
 </template>
 <script>
+	/* eslint-disable no-mixed-spaces-and-tabs */
+	
 	export default {
-		name: 'FilterLine'
+		name: 'FilterLine',
+		data() {
+			return {
+				status: true,
+			}
+		},
+		methods: {
+			check() {
+				if (this.status) {
+					return 'Сводка'
+				} else {
+					return 'Статьи'
+				}
+			}
+		},
+		created() {
+			this.$bus.$on('isSummary', data => {
+		      this.status = data;
+		      this.check()
+		    });
+		},
 	}
 </script>
 <style scoped>

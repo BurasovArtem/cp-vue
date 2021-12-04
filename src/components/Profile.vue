@@ -3,7 +3,7 @@
 		<header class="header">
 			<div class="container flex-row">
 				<div class="header-left flex-row">
-					<img src="~@/assets/img/svg/logo/data-space.svg" class="header-left__logo">
+					<img src="~@/assets/img/svg/logo/data-space.svg" class="header-left__logo" @click="$bus.$emit('isSummary', true); $bus.$emit('isArticles', false);">
 					<ul class="nav flex-row">
 						<li class="nav__item"><a href="#">О сервисе</a></li>
 						<li class="nav__item"><a href="#">Правила</a></li>
@@ -52,25 +52,61 @@
 				<!-- filter line -->
 				<FilterLine />
 				<!-- analytics -->
-				<!-- <SummaryAnalytics /> -->
-				<ArticlesAnalytics />
+				<SummaryAnalytics v-show="isSummary" />
+				<ArticlesAnalytics v-show="isArticles" />
 			</div>
 		</main>
 	</div>
 </template>
 <script>
 	/* eslint-disable no-mixed-spaces-and-tabs */
+
 	import FilterLine from "./asset_components/FilterLine"
-	// import SummaryAnalytics from "./asset_components/SummaryAnalytics"
+	import SummaryAnalytics from "./asset_components/SummaryAnalytics"
 	import ArticlesAnalytics from "./asset_components/ArticlesAnalytics"
 
 	export default {
+		name: 'Profile',
 		components: {
 			FilterLine,
-			// SummaryAnalytics,
+			SummaryAnalytics,
 			ArticlesAnalytics
 		},
-		name: 'Profile'
+		data() {
+			return {
+				isSummary: true,
+				isArticles: false
+			}
+		},
+		methods: {
+			getCookie(name) {
+			    var nameEQ = name + "=";
+			    var ca = document.cookie.split(';');
+			    for(var i=0;i < ca.length;i++) {
+			        var c = ca[i];
+			        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+			        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+			    }
+			    return null;
+			},
+		    checkAuth() {
+		        let status = this.getCookie('auth');
+		        if (!status) {
+		          this.$router.push({path: 'auth'})
+		        }
+		      }
+		},
+	    mounted() {
+	      this.checkAuth();
+	    },
+		created() {
+			this.$bus.$on('isSummary', data => {
+		      this.isSummary = data;
+		    });
+		    this.$bus.$on('isArticles', data => {
+		      this.isArticles = data;
+		    });
+		}
  	}
 </script>
 <style scoped>
@@ -88,7 +124,7 @@
 			align-items: center;
 		}
 			.header .header-left .header-left__logo {
-
+				cursor: pointer;
 			}
 			.header .header-left .nav {
 				margin-left: 67px;

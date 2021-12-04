@@ -10,6 +10,6 @@
   require('./assets/css/config.css');
 
   export default {
-    name: 'App'
+    name: 'App',
   }
 </script>

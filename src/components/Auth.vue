@@ -90,7 +90,7 @@
 					document.cookie = JSON.stringify(c);
 		            console.log(document.cookie)
 
-					// СЮДА ВСТАВЬ!ББ
+					this.$router.push({path: '/'})
 		        })
 		    }
 		},
