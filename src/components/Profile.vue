@@ -89,15 +89,15 @@
 			    }
 			    return null;
 			},
-		    checkAuth() {
-		        let status = this.getCookie('auth');
-		        if (!status) {
-		          this.$router.push({path: 'auth'})
-		        }
-		      }
+		    // checkAuth() {
+		    //     let status = this.getCookie('auth');
+		    //     if (!status) {
+		    //       this.$router.push({path: 'auth'})
+		    //     }
+		    //  }
 		},
 	    mounted() {
-	      this.checkAuth();
+	      // this.checkAuth();
 	    },
 		created() {
 			this.$bus.$on('isSummary', data => {
