@@ -33,7 +33,8 @@
 				</div>
 			</div>
 			<div class="solar-page__main__solarContainer" id="solar">
-				<img src="~@/assets/img/general/chart.png">
+				<!-- <img src="~@/assets/img/general/chart.png" id="parallax"> -->
+				<div id="parallax"></div>
 			</div>
 		</div>
 		<div class="solar-page__footer flex-column">
@@ -50,7 +51,31 @@
 	/* eslint-disable no-mixed-spaces-and-tabs */
 
 	export default {
-		name: 'Solar'
+		name: 'Solar',
+		mounted() {
+			document.addEventListener("mousemove", parallax);
+			const elem = document.querySelector("#parallax");
+			console.log(elem)
+			// Magic happens here
+			function parallax(e) {
+				let _w = window.innerWidth/2;
+				let _h = window.innerHeight/3;
+				let _mouseX = e.clientX;
+				let _mouseY = e.clientY;
+
+				let scale = 0.5;
+				let _depth1 = `${50 - (_mouseX - _w) * scale}% ${50 + (_mouseY - _h) * scale}%`;
+
+				scale = 50;
+				let _depth2 = `${50 - (_mouseX - _w) * scale}% ${50 - (_mouseY - _h) * scale}%`;
+
+				scale = 0.1;
+				let _depth3 = `${50 - (_mouseX - _w) * scale}% ${50 - (_mouseY - _h) * scale}%`;
+				let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+				console.log(x);
+				elem.style.backgroundPosition = x;
+			}
+		}
  	}
  	
 </script>
@@ -87,8 +112,8 @@
 	.solar-page__main {
 	  width: 100%; }
 	  .solar-page__main-filter {
-	    max-width: 80%;
-	    margin: 0 auto;
+	    max-width: 100%;
+	    /* margin: 0 auto; */
 	    justify-content: space-between; }
 	    .solar-page__main-filter__leftContent__title {
 	      align-items: center; }
@@ -142,8 +167,8 @@
 	        line-height: 22px;
 	        color: #E3DBF1; }
 	  .solar-page__main__solarContainer {
-	    width: 80%;
-	    height: 800px;
+	    /* width: 80%; */
+	    height: 500px;
 	    margin: 0 auto;
 	    display: flex;
 	    align-items: center;
@@ -151,8 +176,8 @@
 
 	.solar-page__footer {
 	  position: absolute;
-	  bottom: 159px;
-	  left: 76px; }
+	  bottom: 10px;
+	  left: 10px; }
 	  .solar-page__footer__logo {
 	    height: 35px; }
 	  .solar-page__footer p {
@@ -162,4 +187,14 @@
 	    color: #7562A2; }
 	    .solar-page__footer p:last-child {
 	      margin-top: 12px; }
+
+	#parallax {
+		background-image: url(~@/assets/img/general/chart.png);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-position: 50% 50%;	
+		width: 1127px;
+		height: 630px;
+		background-size: 95%;
+	}
 </style>
